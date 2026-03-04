@@ -8,7 +8,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Candy Crush Clone',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       home: const GameScreen(),

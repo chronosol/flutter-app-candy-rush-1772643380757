@@ -1,9 +1,13 @@
-import '../../domain/repositories/game_repository.dart';
+import 'dart:math';
 import '../../domain/entities/candy_board.dart';
+import '../../domain/repositories/game_repository.dart';
 
 class GameRepositoryImpl implements GameRepository {
   @override
   Future<CandyBoard> fetchBoard() async {
-    return const CandyBoard(board: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+    final random = Random();
+    final board = List.generate(9, (_) =>
+        List.generate(9, (_) => random.nextInt(5)));
+    return CandyBoard(board: board);
   }
 }

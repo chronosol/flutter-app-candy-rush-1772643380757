@@ -8,16 +8,16 @@ class GameScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final gameState = ref.watch(gameControllerProvider);
+    final boardAsyncValue = ref.watch(gameControllerProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Candy Crush Clone'),
       ),
-      body: gameState.when(
-        data: (candyBoard) => CandyBoardWidget(board: candyBoard.board),
+      body: boardAsyncValue.when(
+        data: (board) => CandyBoardWidget(board: board),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, stack) => Center(child: Text('Error: $err')),
+        error: (error, stack) => Center(child: Text('Error: $error')),
       ),
     );
   }

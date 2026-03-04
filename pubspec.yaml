@@ -1,5 +1,5 @@
 name: candy_crush_clone
-description: "A Flutter application."
+description: "Production-grade Flutter application."
 publish_to: 'none'
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -11,10 +11,8 @@ dependencies:
   dio: ^5.4.0
   shared_preferences: ^2.2.2
   flutter_animate: ^4.5.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lints: ^2.2.0
 flutter:
   uses-material-design: true

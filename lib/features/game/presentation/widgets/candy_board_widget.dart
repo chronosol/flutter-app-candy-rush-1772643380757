@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../domain/entities/candy_board.dart';
 
 class CandyBoardWidget extends StatelessWidget {
-  final List<List<int>> board;
+  final CandyBoard board;
 
   const CandyBoardWidget({Key? key, required this.board}) : super(key: key);
 
@@ -9,23 +10,16 @@ class CandyBoardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 9,
       ),
-      itemCount: board.length * board[0].length,
+      itemCount: board.board.length * board.board.length,
       itemBuilder: (context, index) {
-        final row = index ~/ board[0].length;
-        final col = index % board[0].length;
-        return GridTile(
-          child: Container(
-            margin: const EdgeInsets.all(4.0),
-            color: Colors.blueGrey[100 + (board[row][col] * 100)],
-            child: Center(
-              child: Text(
-                board[row][col].toString(),
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-            ),
-          ),
+        final row = index ~/ board.board.length;
+        final col = index % board.board.length;
+        final cellValue = board.board[row][col];
+        return Card(
+          color: Colors.accents[cellValue],
+          child: Center(child: Text('$cellValue')),
         );
       },
     );
