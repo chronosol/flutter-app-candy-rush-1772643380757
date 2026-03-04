@@ -1,12 +1,9 @@
-import 'dart:async';
-import 'package:candy_crush_clone/features/game/domain/entities/candy_board.dart';
-import 'package:candy_crush_clone/features/game/domain/repositories/game_repository.dart';
+import '../../domain/repositories/game_repository.dart';
+import '../../domain/entities/candy_board.dart';
 
 class GameRepositoryImpl implements GameRepository {
   @override
   Future<CandyBoard> fetchBoard() async {
-    // Simulate fetching data from a remote source
-    await Future.delayed(const Duration(seconds: 1));
-    return CandyBoard(board: List.generate(8, (_) => List.generate(8, (_) => 0)));
+    return const CandyBoard(board: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
   }
 }

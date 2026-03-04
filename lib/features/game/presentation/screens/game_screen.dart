@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:candy_crush_clone/features/game/presentation/controllers/game_controller.dart';
-import 'package:candy_crush_clone/features/game/presentation/widgets/candy_board_widget.dart';
+import '../controllers/game_controller.dart';
+import '../widgets/candy_board_widget.dart';
 
 class GameScreen extends ConsumerWidget {
   const GameScreen({Key? key}) : super(key: key);
@@ -15,9 +15,9 @@ class GameScreen extends ConsumerWidget {
         title: const Text('Candy Crush Clone'),
       ),
       body: gameState.when(
-        data: (board) => CandyBoardWidget(board: board),
+        data: (candyBoard) => CandyBoardWidget(board: candyBoard.board),
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('Error: $error')),
+        error: (err, stack) => Center(child: Text('Error: $err')),
       ),
     );
   }

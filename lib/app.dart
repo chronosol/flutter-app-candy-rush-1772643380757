@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:candy_crush_clone/core/theme/app_theme.dart';
-import 'package:candy_crush_clone/features/game/presentation/screens/game_screen.dart';
+import 'core/theme/app_theme.dart';
+import 'features/game/presentation/screens/game_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
